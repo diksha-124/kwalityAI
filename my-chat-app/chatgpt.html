@@ -1,0 +1,289 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChatGPT </title>
+    <link rel="stylesheet" href="CSS.css" />
+
+
+     <!--Bootstrap CSS (CDN)--> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+          crossorigin="anonymous">
+
+     <!--Optional: Font Awesome CDN for icons--> 
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-sV4XlCQcQUpMdhC6mTh1A0HhvlPZxC7vI0T0K1vh7TMOHDin4zJdZOKOeJeR7l8T7KQvwNPr1dA+KZbIvFiE1w=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer" />
+
+</head>
+<body>
+
+
+
+    <header class="chat-header">
+
+        <div class="header-title-container">
+
+
+            <div class="logo">
+                <img src="../Content/Images/KPL LOGO.png" alt="Logo">
+            </div>
+
+            <div class="header-center">
+                <h1 class="chat-title">Kwality Friends AI </h1>
+            </div>
+
+        </div>
+        <div class="header-right">
+            <button class="chatgpt-login-button" id="openLogin">Log In</button>
+        </div>
+
+        <div class="overlay" id="overlay">
+            <div class="popup">
+                <span class="close-icon" id="closePopup">&times;</span>
+      
+
+                <div class="col-md-12">
+
+
+                    <!--<button class="Show btn-primary" id="Initiatebtn" data-target="#target" title="Click to Show">Initiated By</button>-->
+                    <div id="target">
+                        <div id="employee-form" class="container">
+                            <center><h4 class="card-title"><b>Initiated By</b></h4></center>
+                            <div class="row mb-4">
+                                <div class="col-md-8">
+                                    <div id="emp-id-group">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label for="emp-id-input">Emp ID</label>
+                                                <input type="text" id="emp-id-input" class="form-control" placeholder="Enter Employee ID" />
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="password-input">Password</label>
+                                                <input type="password" id="password-input" class="form-control" placeholder="Enter Password" background="white" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 d-flex align-items-center justify-content-center">
+                                    <button type="button" class="btn btn-sm btn-primary w-100 mt-3" id="btns1" title="Click to Fetch Data">Submit</button>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <div id="User-group">
+                                        <label for="name">Card No.</label>
+                                        <input type="text" id="Card-id-input" class="form-control" placeholder="Card Number" readonly="readonly" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div id="name-group">
+                                        <label for="name">Name</label>
+                                        <input type="text" id="name-input" class="form-control" readonly="readonly" />
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <div id="designation-group">
+                                        <label for="desig">Designation</label>
+                                        <input type="text" id="designation-input" class="form-control" readonly="readonly" />
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <div id="section-group">
+                                        <label for="sect">Section</label>
+                                        <input type="text" id="section-input" class="form-control" readonly />
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <div id="department-group">
+                                        <label for="dept">Department</label>
+                                        <input type="text" id="department-input" class="form-control" readonly />
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <div id="date-time-group">
+                                        <label for="date-time-input">Date</label>
+                                        <input type="text" id="datetimeInput" class="form-control" readonly />
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <div id="box-container" class="d-flex align-items-center justify-content-center">
+                                        <canvas id="qrCodeContainer" width="100" height="100"></canvas>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 d-flex align-items-center justify-content-center">
+                                    <button type="button" class="btn btn-primary w-100" id="saveI" title="Click for Data Save">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+
+            </div>
+
+
+        </header>
+
+
+
+     
+
+
+                <!--<h2>Log in or sign up</h2>
+                <p>You’ll get smarter responses and can upload files, images, and more..</p>
+
+                <button class="option-btn">
+                    <img src="https://www.gstatic.com/images/branding/product/1x/gsa_64dp.png"
+                         alt="Google logo" class="google-icon">
+                    Continue with Google
+                </button>
+                <button class="option-btn">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg"
+                         alt="Apple logo" class="apple-icon">
+                    Continue with Apple
+                </button>
+
+                <button class="option-btn">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg"
+                         alt="Microsoft logo" class="microsoft-icon">
+                    Continue with Microsoft
+                </button>
+
+                <button class="option-btn">📞 Continue with Phone</button>
+
+
+
+                <div class=" or-divider">OR</div>
+
+
+                <input type="email" placeholder="Email address" />
+
+
+                <button class="continue-btn">Continue</button>
+
+            </div>
+
+        </div>
+
+
+
+    </header>-->
+
+
+
+
+
+
+    <script>
+        const openBtn = document.getElementById('openLogin');
+
+        const overlay = document.getElementById('overlay');
+
+        const closeBtn = document.getElementById('closePopup');
+
+
+        openBtn.addEventListener('click', () => {
+
+            overlay.style.display = 'flex';
+        });
+
+        closeBtn.addEventListener('click', () => {
+
+            overlay.style.display = 'none';
+        });
+
+
+        overlay.addEventListener('click', (e) => {
+
+            if (e.target === overlay) {
+
+                overlay.style.display = 'none';
+
+
+            }
+
+
+        });
+
+
+    </script>
+
+
+
+    <div>
+        <div class="screen-center">
+            <div class="chat-container">
+                <div class="input-container">
+
+                    <div class="title-row">
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="startOption" value="AI Search" checked />
+                                <span>Search</span>
+                            </label>
+                            <label class="radio-option">
+
+                                <input type="radio" name="startOption" value="Kwality Search" />
+
+                                <span>Kwality</span>
+                            </label>
+                        </div>
+
+                        <h2 class="title">Where should we begin?</h2>
+                    </div>
+
+                    <input type="text" placeholder="Ask anything" class="chat-input" />
+
+                    <div class="button-group">
+                        <button class="btn attach-btn">📎 Attach</button>
+                        <input type="file" id="file-input" hidden />
+                        <button class="btn search-btn">🔍 Search</button>
+                        <button class="btn voice-btn">🎤 Voice</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <footer class="footer">
+        <p>By messaging Kwality Friends AI, you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.</p>
+    </footer>
+
+    <script src="script.js"></script>
+     <!--Bootstrap JS & Popper (CDN)--> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-Gtv0xmgAaD6RrRAJcF03MkHsf6Nk1PEcV0SvKoDJLLwcA5UHm2h26ivQjYBfJ/7C"
+            crossorigin="anonymous"></script>
+
+     <!--jQuery (optional)--> 
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-2UxtJx9GgH6yzQKagx6q7mI0wYI6sR8Wf5ML4vj+oE4="
+            crossorigin="anonymous"></script>
+
+</body>
+</html>
